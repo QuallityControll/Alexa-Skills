@@ -20,6 +20,7 @@ def start_skill():
 
 @ask.intent("AddIntent")
 def add_intent():
+    return statement("Hi")
 
 @ask.intent("RecognizeIntent")
 def rec_intent():
@@ -31,15 +32,17 @@ def rec_intent():
             num_not_recognized += 1
         else:
             msg += name + ", "
-
-    if num_not_recognized != 1:
-        msg += "and " + num_not_recognized + " people I don't recognize."
+    if msg == "I see ":
+        if num_not_recognized != 1:
+            msg += str(num_not_recognized) + " people I don't recognize."
+        else:
+            msg += str(num_not_recognized) + " person I don't recognize."
     else:
-        msg += "and " + num_not_recognized + " person I don't recognize."
+        if num_not_recognized != 1:
+            msg += "and " + str(num_not_recognized) + " people I don't recognize."
+        else:
+            msg += "and " + str(num_not_recognized) + " person I don't recognize."
     return statement(msg)
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
