@@ -2,9 +2,10 @@ import Face_Recognition as fr
 from flask import Flask
 from flask_ask import Ask, statement, question
 
+fr.load()
+
 app = Flask(__name__)
 ask = Ask(app, '/')
-
 
 @app.route('/')
 def homepage():
@@ -14,13 +15,15 @@ def homepage():
 @ask.launch
 def start_skill():
     msg = "What do you want to do? Add to the database, or recognize a person?"
-    fr.load()
     return question(msg)
 
 
 @ask.intent("AddIntent")
-def add_intent():
-    return statement("Hi")
+def add_intent(firstname):
+    fr.add(firstname)
+    fr.save()
+    return statement("Done.")
+    
 
 @ask.intent("RecognizeIntent")
 def rec_intent():
