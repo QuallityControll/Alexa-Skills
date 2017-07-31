@@ -2,8 +2,6 @@ import Face_Recognition as fr
 from flask import Flask
 from flask_ask import Ask, statement, question
 
-fr.load()
-
 app = Flask(__name__)
 ask = Ask(app, '/')
 
@@ -14,7 +12,8 @@ def homepage():
 
 @ask.launch
 def start_skill():
-    msg = "What do you want to do? Add to the database, or recognize a person?"
+    #msg = "What do you want to do? Add to the database, or recognize a person?"
+    msg = "Hi"
     return question(msg)
 
 
@@ -33,7 +32,7 @@ def add_intent(firstname):
     """
     fr.add(firstname)
     fr.save()
-    return statement("Done.")
+    return statement("I added " + str(firstname))
     
 
 @ask.intent("RecognizeIntent")
@@ -57,17 +56,29 @@ def rec_intent():
             num_not_recognized += 1
         else:
             msg += name + ", "
-    if msg == "I see ":
-        if num_not_recognized != 1:
-            msg += str(num_not_recognized) + " people I don't recognize."
+    if num_not_recognized != 0:
+        if msg == "I see ":
+            if num_not_recognized != 1:
+                msg += str(num_not_recognized) + " people I don't recognize."
+            else:
+                msg += str(num_not_recognized) + " person I don't recognize."
         else:
-            msg += str(num_not_recognized) + " person I don't recognize."
-    else:
-        if num_not_recognized != 1:
-            msg += "and " + str(num_not_recognized) + " people I don't recognize."
-        else:
-            msg += "and " + str(num_not_recognized) + " person I don't recognize."
+            if num_not_recognized != 1:
+                msg += "and " + str(num_not_recognized) + " people I don't recognize."
+            else:
+                msg += "and " + str(num_not_recognized) + " person I don't recognize."
+    elif msg == "I see ":
+        return statement("No one is there. ")
     return statement(msg)
+
+@ask.intent("ListIntent")
+def edgy_alexa():
+    return statement(fr.list_people())
+
+@ask.intent("RemoveIntent")
+def remove(firstname):
+    fr.remove(firstname)
+    return statement("Done. " + str(firstname) + " was removed.")
 
 if __name__ == '__main__':
     app.run(debug=True)
