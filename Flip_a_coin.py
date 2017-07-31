@@ -19,6 +19,12 @@ def start_skill():
 
 
 def flip_a_coin():
+    """
+    It will return a string of "Heads" or "Tails". Based on an RNG.
+
+    Returns:
+        A string that is heads or tails based on an RNG. 
+    """
     if random.random() < 0.5:
         return "Heads"
     else:
@@ -27,6 +33,10 @@ def flip_a_coin():
 
 @ask.intent("HeadsIntent")
 def heads_intent():
+    """
+    This is the function that tells if you win or lose based off
+    of the heads you said. 
+    """
     a = flip_a_coin()
     if a == "Tails":
         return statement("You lose.")
@@ -36,6 +46,10 @@ def heads_intent():
 
 @ask.intent("TailsIntent")
 def tails_intent():
+        """
+    This is the function that tells if you win or lose based off
+    of the tails you said. 
+    """
     a = flip_a_coin()
     if a == "Heads":
         return statement("You lose.")
