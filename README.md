@@ -1,4 +1,4 @@
-# Alexa-Skills
+# Alexa-Skills (see issues for other important documents)
 
 Originality
 
