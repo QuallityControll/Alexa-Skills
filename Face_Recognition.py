@@ -20,6 +20,17 @@ def start_skill():
 
 @ask.intent("AddIntent")
 def add_intent(firstname):
+    """
+    This takes the name of the person and then takes a picture of the person and adds the person to the 
+    database. 
+
+    Params:
+        firstname[str]:
+            A string that is the name of the person. 
+    Returns:
+        statement("Done."):
+            It says "Done." when it is done saving it in the database. 
+    """
     fr.add(firstname)
     fr.save()
     return statement("Done.")
@@ -27,6 +38,17 @@ def add_intent(firstname):
 
 @ask.intent("RecognizeIntent")
 def rec_intent():
+    """
+    The camera will take a picture and recognize everyone in the picture. It then formats the names into a 
+    grammatically correct sentence. 
+
+    Returns:
+        statement(msg[str]):
+            Alexa will say the people in the picture with the format of the people it knows first and then 
+            a count of the people it doesn't recognize. 
+
+    """
+
     names = fr.identify(display_picture=False)
     msg = "I see "
     num_not_recognized = 0
