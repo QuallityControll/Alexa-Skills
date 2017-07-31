@@ -20,7 +20,8 @@ def start_skill():
 
 @ask.intent("AddIntent")
 def add_intent():
-    return statement("Hi")
+    msg = "Please type your name into the prompt."
+    statement(msg)
 
 @ask.intent("RecognizeIntent")
 def rec_intent():
@@ -43,6 +44,15 @@ def rec_intent():
         else:
             msg += "and " + str(num_not_recognized) + " person I don't recognize."
     return statement(msg)
+
+@ask.intent("ListIntent")
+def list_intent():
+    name_list = fr.list_people()
+
+    msg = "There are " + str(len(name_list)) + "people in the database: " + ", ".join(name_list)
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
