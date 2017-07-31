@@ -28,11 +28,11 @@ def get_comp_answer():
 def rock_intent():
     comp = get_comp_answer()
     if comp == "Rock":
-        return statement("Tie")
+        return statement(comp + ". Tie")
     elif comp == "Scissors":
-        return statement("You Win")
+        return statement(comp + ". You Win")
     else:
-        return statement("You lose")
+        return statement(comp + ". You lose")
 
 
 @ask.intent("PaperIntent")
