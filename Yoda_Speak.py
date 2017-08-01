@@ -40,13 +40,14 @@ def start_skill():
 
 @ask.intent("PhraseIntent")
 def yoda_speak(phrase):
-   	opener = urllib.request.build_opener()
+   	"""opener = urllib.request.build_opener()
    	opener.addheaders = [("X-Mashape-Authorization", mashapeAuthorization)]
    	socket = opener.open("https://yoda.p.mashape.com/yoda?sentence=" + phrase)
    	content = socket.read()
    	socket.close()
-   	return statement(content)
+   	return statement(content)"""
+
+    content = 
 
 if __name__ == '__main__':
     app.run(debug=True)
-  
