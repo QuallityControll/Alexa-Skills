@@ -7,6 +7,8 @@ import gensim
 from gensim.models.keyedvectors import KeyedVectors
 from sklearn.decomposition import TruncatedSVD
 
+
+
 """
 Intent Scheme:
 {
@@ -37,8 +39,7 @@ AnalogyIntent {king|first} is to {queen|second} as {man|third} is to
 
 """
 
-
-path = "glove.6B.50d.txt.w2v"
+path = "glove.6B.50d.txt.w2v" # Make sure you have this file in the directory
 glove = KeyedVectors.load_word2vec_format(path, binary=False)
 
 app = Flask(__name__)
