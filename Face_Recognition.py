@@ -2,6 +2,50 @@ import Face_Recognition as fr
 from flask import Flask
 from flask_ask import Ask, statement, question
 
+"""
+Intent Scheme:
+
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "firstname",
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ],
+      "intent": "AddIntent"
+    },
+    {
+      "intent": "RecognizeIntent"
+    },
+    {
+      "intent": "ListIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "firstname",
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ],
+      "intent": "RemoveIntent"
+    }
+  ]
+}
+
+Sample Utterances:
+
+AddIntent add {firstname}
+RecognizeIntent recognize
+RecognizeIntent identify
+ListIntent list
+RemoveIntent remove {firstname}
+
+"""
+
+
+
 app = Flask(__name__)
 ask = Ask(app, '/')
 
@@ -12,8 +56,7 @@ def homepage():
 
 @ask.launch
 def start_skill():
-    #msg = "What do you want to do? Add to the database, or recognize a person?"
-    msg = "Hi"
+    msg = "What do you want to do? Add to the database, or recognize a person?"
     return question(msg)
 
 
