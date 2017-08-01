@@ -31,6 +31,7 @@ def add_intent(firstname):
             It says "Done." when it is done saving it in the database. 
     """
     fr.add(firstname)
+    fr.list_people()
     fr.save()
     return statement("I added " + str(firstname))
     
