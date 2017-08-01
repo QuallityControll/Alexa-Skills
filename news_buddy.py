@@ -100,8 +100,8 @@ topic_to_url = {
     "global":"http://feeds.reuters.com/Reuters/worldNews"
         }
 
-for topic in topic_to_url:
-    nb.update_via_rss_feed(topic_to_url[topic])
+#for topic in topic_to_url:
+    #nb.update_via_rss_feed(topic_to_url[topic])
 nb.save()
 
 @app.route('/')
@@ -110,8 +110,6 @@ def homepage():
 
 @ask.launch
 def start_skill():
-    nb.update_via_rss_feed("http://feeds.reuters.com/reuters/scienceNews")
-    nb.save()
     return question("What would you like to know?") \
         .reprompt("I didn't get that. What would you like to know?")
 
@@ -142,15 +140,16 @@ def associated_with_entity(topic, num_entities=3):
 
     if len(entity_strings) > 0:
         associated_entity_list = nb.most_associated_with_entity(entity_strings[0], \
-                                                    num_entities = num_entities)
+                                                    num_entities = 3)
     else:
-        associated_entity_list = nb.most_associated_with_phrase(topic)
+        associated_entity_list = nb.most_associated_with_phrase(topic, \
+                                                    num_entities = 3)
 
 
     if len(associated_entity_list) > 0:
         msg = "For things associated with {}, I found".format(topic) + \
-                ", ".join(associated_entity_ist[:-1]) + \
-                " and " + associated_entity_list[-1] + "."
+                ", ".join(associated_entity_list[:-1]) + \
+                ", and " + associated_entity_list[-1] + "."
 
     else:
         msg = "I found nothing associated with {}.".format(topic)
