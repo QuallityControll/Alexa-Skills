@@ -2,7 +2,27 @@ from flask import Flask
 from flask_ask import Ask, statement, question
 import random
 
+"""
+Intent Scheme:
+{
+  "intents": [
+    {
+      "intent": "HeadsIntent"
+    },
+    {
+      "intent": "TailsIntent"
+    }
+  ]
+}
 
+Sample Utterances:
+
+HeadsIntent heads
+HeadsIntent head
+TailsIntent tails
+TailsIntent tail
+
+"""
 app = Flask(__name__)
 ask = Ask(app, '/')
 
