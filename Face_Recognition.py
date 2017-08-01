@@ -1,6 +1,6 @@
 import Face_Recognition as fr
 from flask import Flask
-from flask_ask import Ask, statement, question
+from flask_ask import Ask, statement, question, session
 
 """
 Intent Scheme:
@@ -93,6 +93,10 @@ def rec_intent():
     """
 
     names = fr.identify(display_picture=False)
+
+    if len(names) == 1 and names[0] != "Not recognized":
+        session.attributes[user_name] = names[0]
+
     msg = "I see "
     num_not_recognized = 0
     for name in names:
@@ -113,6 +117,7 @@ def rec_intent():
                 msg += "and " + str(num_not_recognized) + " person I don't recognize."
     elif msg == "I see ":
         return statement("No one is there. ")
+
     return statement(msg)
 
 @ask.intent("ListIntent")

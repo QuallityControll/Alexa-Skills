@@ -58,16 +58,16 @@ def start_skill():
 @ask.intent("AnalogyIntent")
 def Analogy(first, second, third):
 	n = len(glove.vocab)
-	d = glove.vector_size
+	d = 50
 	X_glove = np.zeros((n, d))
 	for i, word in enumerate(glove.vocab.keys()):
-	    X_glove[i,:] = glove.wv[word]
+	    X_glove[i,:] = glove[word]
 	svd = TruncatedSVD(n_components=2)
 	svd.fit(X_glove)
-	query = glove.wv[third] - glove.wv[first] + glove.wv[second]
-	a = glove.wv.similar_by_vector(query)[0][0]
+	query = glove[third] - glove[first] + glove[second]
+	a = glove.similar_by_vector(query)[0][0]
 	if a == third:
-		a = glove.wv.similar_by_vector(query)[1][0]
+		a = glove.similar_by_vector(query)[1][0]
 	return statement(a)
 
 if __name__ == '__main__':
