@@ -1,11 +1,11 @@
 from flask import Flask
 from flask_ask import Ask, statement, question, session
-import Face Recognition as fr
-from .userdata import Userdata
+import Face_Recognition as fr
+from userdata import Userdata
 import pickle
 
 app = Flask(__name__)
-ask = Ask(app, '/')cd
+ask = Ask(app, '/')
 
 #import userdata with pickle
 try:
@@ -24,7 +24,7 @@ def user():
 def nick():
     #if user has nickname in dict, return that. if not, return raw name
     try:
-        return = userdata.usernicknames[user()]
+        return userdata.usernicknames[user()]
     except:
         return user()
 
@@ -35,7 +35,7 @@ def save_userdata():
 @ask.launch
 def start_skill():
     return question("Hello, {}. What would you like to do?".format(nick())
-        .reprompt("I don't understand. What would you like me to do?")
+        .reprompt("I don't understand. What would you like me to do?"))
 
 #----------------------------------------------------------------------------
 #                     CONFIGURATION
@@ -45,12 +45,12 @@ def start_skill():
 def update_user():
     name_list = fr.identify()
     if len(name_list)==0:
-        return statement("I see noone. Make sure you are in front of the camera."
+        return statement("I see noone. Make sure you are in front of the camera.")
     elif len(name_list)>1:
         return statement("I see multiple people. Make sure you are the only \
-                            person facing the camera."
+                            person facing the camera.")
     name = namelist[0]
-    if name == "Not Recognized"
+    if name == "Not Recognized":
         return statement("I don't recognize you. Try adding yourself \
                             to the face recognition database.")
     else:
@@ -58,7 +58,7 @@ def update_user():
         userdata.user_history.add(name)
         save_userdata()
 
-    return statement("Updated user to {}".format(nick())
+    return statement("Updated user to {}".format(nick()))
 
 #slot: {newname}
 @ask.intent("UserNicknameIntent")
@@ -138,15 +138,15 @@ def confirm_identity():
 #--------------------------------------------------------------------------
 
 #implement later???
-@ask.intent("CheckFacebookIntent"):
+@ask.intent("CheckFacebookIntent")
 def check_facebook():
     pass
 
-@ask.intent("PostToFacebookIntent"):
+@ask.intent("PostToFacebookIntent")
 def post_facebook():
     pass
 
-@ask.intent("CheckTwitterIntent"):
+@ask.intent("CheckTwitterIntent")
 def check_twitter():
     pass
 

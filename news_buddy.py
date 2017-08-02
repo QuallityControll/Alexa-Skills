@@ -98,25 +98,7 @@ topic_to_url = {
     "top":"http://feeds.reuters.com/reuters/topNews",
     "domestic":"http://feeds.reuters.com/Reuters/domesticNews",
     "global":"http://feeds.reuters.com/Reuters/worldNews"
-    "all": ["http://feeds.reuters.com/news/artsculture",
-            "http://feeds.reuters.com/reuters/businessNews",
-            "http://feeds.reuters.com/reuters/companyNews",
-            "http://feeds.reuters.com/reuters/entertainment",
-            "http://feeds.reuters.com/reuters/environment",
-            "http://feeds.reuters.com/reuters/healthNews",
-            "http://feeds.reuters.com/reuters/lifestyle",
-            "http://feeds.reuters.com/news/wealth",
-            "http://feeds.reuters.com/reuters/MostRead",
-            "http://feeds.reuters.com/reuters/oddlyEnoughNews",
-            "http://feeds.reuters.com/reuters/peopleNews",
-            "http://feeds.reuters.com/Reuters/PoliticsNews",
-            "http://feeds.reuters.com/reuters/scienceNews",
-            "http://feeds.reuters.com/reuters/sportsNews",
-            "http://feeds.reuters.com/reuters/technologyNews",
-            "http://feeds.reuters.com/reuters/topNews",
-            "http://feeds.reuters.com/Reuters/domesticNews",
-            "http://feeds.reuters.com/Reuters/worldNews"]
-        }
+    }
 
 #for topic in topic_to_url:
     #nb.update_via_rss_feed(topic_to_url[topic])
@@ -177,7 +159,11 @@ def associated_with_entity(topic, num_entities=3):
 #slots: {newsTopic}
 @ask.intent("LoadDataIntent")
 def load_data(newsTopic):
-    nb.update_via_rss_feed(topic_to_url[newsTopic])
+    if newsTopic == "all":
+        for topic in topic_to_url:
+            nb.update_via_rss_feed(topic)
+    else:
+        nb.update_via_rss_feed(topic_to_url[newsTopic])
 
     nb.save()
     msg = "{} news loaded.".format(newsTopic)
@@ -187,4 +173,4 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 #load data upon initialization
-#load_data("all")
+load_data("all")
