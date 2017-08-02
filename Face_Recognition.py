@@ -44,8 +44,6 @@ RemoveIntent remove {firstname}
 
 """
 
-fr.load()
-
 app = Flask(__name__)
 ask = Ask(app, '/')
 
