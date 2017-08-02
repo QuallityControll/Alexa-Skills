@@ -1,11 +1,11 @@
 from flask import Flask
 from flask_ask import Ask, statement, question, session
 import Face Recognition as fr
-from userdata import Userdata
+from .userdata import Userdata
 import pickle
 
 app = Flask(__name__)
-ask = Ask(app, '/')
+ask = Ask(app, '/')cd
 
 #import userdata with pickle
 try:

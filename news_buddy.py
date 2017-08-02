@@ -98,6 +98,24 @@ topic_to_url = {
     "top":"http://feeds.reuters.com/reuters/topNews",
     "domestic":"http://feeds.reuters.com/Reuters/domesticNews",
     "global":"http://feeds.reuters.com/Reuters/worldNews"
+    "all": ["http://feeds.reuters.com/news/artsculture",
+            "http://feeds.reuters.com/reuters/businessNews",
+            "http://feeds.reuters.com/reuters/companyNews",
+            "http://feeds.reuters.com/reuters/entertainment",
+            "http://feeds.reuters.com/reuters/environment",
+            "http://feeds.reuters.com/reuters/healthNews",
+            "http://feeds.reuters.com/reuters/lifestyle",
+            "http://feeds.reuters.com/news/wealth",
+            "http://feeds.reuters.com/reuters/MostRead",
+            "http://feeds.reuters.com/reuters/oddlyEnoughNews",
+            "http://feeds.reuters.com/reuters/peopleNews",
+            "http://feeds.reuters.com/Reuters/PoliticsNews",
+            "http://feeds.reuters.com/reuters/scienceNews",
+            "http://feeds.reuters.com/reuters/sportsNews",
+            "http://feeds.reuters.com/reuters/technologyNews",
+            "http://feeds.reuters.com/reuters/topNews",
+            "http://feeds.reuters.com/Reuters/domesticNews",
+            "http://feeds.reuters.com/Reuters/worldNews"]
         }
 
 #for topic in topic_to_url:
