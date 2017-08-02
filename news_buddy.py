@@ -100,8 +100,8 @@ topic_to_url = {
     "global":"http://feeds.reuters.com/Reuters/worldNews"
     }
 
-#for topic in topic_to_url:
-    #nb.update_via_rss_feed(topic_to_url[topic])
+for topic in topic_to_url:
+    nb.update_via_rss_feed(topic_to_url[topic])
 nb.save()
 
 @app.route('/')
