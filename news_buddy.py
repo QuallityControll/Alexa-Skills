@@ -169,4 +169,4 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 #load data upon initialization
-load_data("all")
+#load_data("all")
