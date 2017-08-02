@@ -94,8 +94,8 @@ def rec_intent():
 
     names = fr.identify(display_picture=False)
 
-    if len(names) == 1 and names[0] != "Not recognized":
-        session.attributes[user_name] = names[0]
+    #if len(names) == 1 and names[0] != "Not recognized":
+        #session.attributes[user_name] = names[0]
 
     msg = "I see "
     num_not_recognized = 0
