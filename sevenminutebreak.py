@@ -20,7 +20,7 @@ def start_skill():
 @ask.intent("YesIntent")
 def share_remedy():
     print("reached")
-    remedy_msg = "Then you are having symptoms of Cog Works. To fix this I recommend to take a Seven Minute Break!. Have an amazing day"
+    remedy_msg = "I recommend taking a Seven Minute Break!. Have an amazing day"
     return statement(remedy_msg)
 
 @ask.intent("NoIntent")
