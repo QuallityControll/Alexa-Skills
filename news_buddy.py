@@ -100,8 +100,8 @@ topic_to_url = {
     "global":"http://feeds.reuters.com/Reuters/worldNews"
     }
 
-#for topic in topic_to_url:
-    #nb.update_via_rss_feed(topic_to_url[topic])
+for topic in topic_to_url:
+    nb.update_via_rss_feed(topic_to_url[topic])
 nb.save()
 
 @app.route('/')
@@ -159,11 +159,7 @@ def associated_with_entity(topic, num_entities=3):
 #slots: {newsTopic}
 @ask.intent("LoadDataIntent")
 def load_data(newsTopic):
-    if newsTopic == "all":
-        for topic in topic_to_url:
-            nb.update_via_rss_feed(topic)
-    else:
-        nb.update_via_rss_feed(topic_to_url[newsTopic])
+    nb.update_via_rss_feed(topic_to_url[newsTopic])
 
     nb.save()
     msg = "{} news loaded.".format(newsTopic)
