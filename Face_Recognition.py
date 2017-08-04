@@ -54,7 +54,7 @@ def homepage():
 
 @ask.launch
 def start_skill():
-    msg = "What do you want to do? Add to the database, or recognize a person?"
+    msg = "What do you want to do? You can identify, add, or list."
     return question(msg)
 
 

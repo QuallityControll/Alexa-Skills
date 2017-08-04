@@ -14,7 +14,11 @@ def homepage():
 
 @ask.launch
 def start_skill():
-    msg = "Hi there. Have you been feeling hot lately? Do you feel like you have been stressing out over anxiety? Or having hard times with pain, fatigue, and/or feaver? All in all do you feel like you have been having a rough time over the past couple of weeks?"
+    msg = """Hi there. Have you been feeling hot lately?
+            Do you feel like you have been stressing out over anxiety?
+            Or having hard times with pain, fatigue, and/or feaver?
+             All in all do you feel like you have been having a rough time
+              over the past couple of weeks?"""
     return question(msg)
 
 @ask.intent("YesIntent")
