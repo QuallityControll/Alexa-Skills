@@ -1,5 +1,6 @@
-# Intent Scheme
+Intent Scheme
 
+```
 {
   "intents": [
     {
@@ -10,10 +11,13 @@
     }
   ]
 }
+```
 
-# Sample Utterances
+Sample Utterances
 
+```
 HeadsIntent heads
 HeadsIntent head
 TailsIntent tails
 TailsIntent tail
+```
