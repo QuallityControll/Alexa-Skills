@@ -166,7 +166,7 @@ def load_data(newsTopic):
     return statement(msg)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5003)
 
 #load data upon initialization
 load_data("all")
