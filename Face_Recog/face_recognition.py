@@ -1,4 +1,4 @@
-import Face_Recognition as fr
+import face_recognition as fr
 from flask import Flask
 from flask_ask import Ask, statement, question, session
 
@@ -120,7 +120,7 @@ def rec_intent():
 
 @ask.intent("ListIntent")
 def edgy_alexa():
-    return statement(fr.list_people())
+    return statement(", ".join(fr.list_people()))
 
 @ask.intent("RemoveIntent")
 def remove(firstname):
