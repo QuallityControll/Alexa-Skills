@@ -212,7 +212,7 @@ def update_user():
     """
     #database must be loaded again in case new people have been added
     #during the current session
-    import Face_Recognition as fr
+    import face_recognition_2 as fr
     fr.load()
     print("Database loaded.")
 
