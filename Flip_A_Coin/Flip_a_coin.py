@@ -66,7 +66,7 @@ def heads_intent():
 
 @ask.intent("TailsIntent")
 def tails_intent():
-        """
+    """
     This is the function that tells if you win or lose based off
     of the tails you said. 
     """
