@@ -159,6 +159,10 @@ def associated_with_entity(topic, num_entities=3):
 #slots: {newsTopic}
 @ask.intent("LoadDataIntent")
 def load_data(newsTopic):
+    if newsTopic == "all":
+        for topic in topic_to_url:
+            nb.update_via_rss_feed(topic_to_url[topic])
+    
     nb.update_via_rss_feed(topic_to_url[newsTopic])
 
     nb.save()
