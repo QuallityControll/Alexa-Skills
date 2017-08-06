@@ -1,6 +1,7 @@
-#depth of understanding
+# depth of understanding
 
-#Song Fingerprinting
+# Song Fingerprinting
+
 ————————————————
 
 *Sound*
@@ -14,11 +15,11 @@ Amplitude - sound pressure or intensity
 
 Frequency - times repeated(measured in hertz)
 	
-	Travels in waves measured in decibels
+  Travels in waves measured in decibels
 
 Sound Perception - 
 
-	Pitch - low/high
+  Pitch - low/high
 
 	Duration - short/long
 
