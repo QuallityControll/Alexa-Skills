@@ -1,4 +1,4 @@
-import face_recognition as fr
+import face_recognition_2 as fr
 from flask import Flask
 from flask_ask import Ask, statement, question, session
 
