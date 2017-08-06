@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_ask import Ask, statement, question, session
-import Face_Recognition as fr
+import face_recognition_2 as fr
 from userdata import Userdata
 import pickle
 
