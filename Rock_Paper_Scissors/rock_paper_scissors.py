@@ -2,6 +2,32 @@ from flask import Flask
 from flask_ask import Ask, statement, question
 import random
 
+"""
+Intent Schema:
+
+{
+  "intents": [
+    {
+      "intent": "RockIntent"
+    },
+    {
+      "intent": "PaperIntent"
+    },
+    {
+      "intent": "ScissorsIntent"
+    }
+  ]
+}
+
+Sample Utterances:
+
+RockIntent rock
+PaperIntent paper
+ScissorsIntent scissors
+
+"""
+
+
 app = Flask(__name__)
 ask = Ask(app, '/')
 
